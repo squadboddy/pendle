@@ -1,0 +1,101 @@
+{
+  "wallets_scan_enabled": true,
+  "wallet_scanner": {
+    "protocols": [
+      {
+        "key": "ether_fi",
+        "point_price": 0.0001,
+        "points_url": "https://app.ether.fi/api/portfolio/v3",
+        "el_points_location": "totalIntegrationEigenLayerPoints",
+        "protocol_points_location": "totalIntegrationLoyaltyPoints"
+      },
+      {
+        "key": "renzo",
+        "point_price": 0.04,
+        "points_url": "https://app.renzoprotocol.com/api/points",
+        "el_points_location": "data.totals.eigenLayerPoints",
+        "protocol_points_location": "data.totals.renzoPoints"
+      },
+      {
+        "key": "kelp",
+        "point_price": 0.0001093613842,
+        "points_url": "https://common.kelpdao.xyz/km-el-points/user",
+        "el_points_location": "value.elPoints",
+        "protocol_points_location": "value.kelpMiles"
+      }
+    ],
+    "points_price": {
+      "el": 0.04,
+      "zircuit": 0.04
+    },
+    "wallets": [
+      {
+        "address": "wallet_address",
+        "previous_points": {
+          "ether_fi": {
+            "previous_season_el_points_amount": 0,
+            "previous_season_points_amount": 0
+          },
+          "renzo": {
+            "previous_season_el_points_amount": 10000,
+            "previous_season_points_amount": 10000
+          },
+          "kelp": {
+            "previous_season_el_points_amount": 0,
+            "previous_season_points_amount": 0
+          }
+        }
+      }
+    ]
+  },
+  "pendle_profit_calculation_enabled": true,
+  "pendle": {
+    "chains": [
+      {
+        "name": "Ethereum",
+        "id": 1
+      },
+      {
+        "name": "Arbitrum",
+        "id": 42161
+      }
+    ],
+    "amount_to_invest": 1000,
+    "filter_negative_profit": true,
+    "lrt": [
+      {
+        "ticker": "eeth",
+        "key": "ether_fi",
+        "point_price": 0.0001,
+        "analise_before_date": "2024-06-30T00:00:00.000",
+        "points_per_hour": 416.67,
+        "wallet_multiplier": 2
+      },
+      {
+        "ticker": "rseth",
+        "key": "kelp",
+        "point_price": 0.0001093613842,
+        "analise_before_date": "2024-06-30T00:00:00.000",
+        "points_per_hour": 416.67,
+        "wallet_multiplier": 1
+      },
+      {
+        "ticker": "ezeth",
+        "key": "renzo",
+        "point_price": 0.0001093613842,
+        "analise_before_date": "2024-07-30T00:00:00.000",
+        "points_per_hour": 1,
+        "wallet_multiplier": 1.5
+      }
+    ],
+    "yt_price_location": "yt.price.usd",
+    "base_protocols": {
+      "el_price": 0.04,
+      "zircuit_price": 0.04,
+      "el_wallet_multiplier": 1,
+      "zircuit_wallet_multiplier": 1,
+      "el_points_per_hour": 1,
+      "zircuit_points_per_hour": 1
+    }
+  }
+}
