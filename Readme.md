@@ -3,6 +3,7 @@
 This script has two main functionalities:
 1. Scanning wallets for already earned points and calculating their USD equivalent.
 2. Calculating profits for current Pendle pools.
+3. Calculating points price base on chain analytics
 
 ## Setup
 
@@ -41,3 +42,35 @@ Configuration adjustments should only be made in the `config.json` file. This sc
 7. **pendle.base_protocols**: Similar to the wallet scanner, configure for each protocol as needed.
    - Adjust prices, multipliers, and point rates according to protocol rules and updates.
 
+### Dynamic points price calculation
+
+## Prerequisites:
+- To use this module you need to set your `dun_api_token` to config file.
+- To register this token you need to sign up/ in to `https://dune.com`. 
+- Then open profile setting (`https://dune.com/settings/api`) -> "create new api key"
+
+## Configuration
+1. **dynamic_points_price_enabled**: Set to `false` to disable points price calculation based on chain analytics. If module is turn on, got prices will overwrite config point prices. If you want to use just some of them. You can run this module, take the required prices, add them to other parts of config. Then disable module and run other functionalities again.
+2. **dynamic_points_price.renzo**: 
+- `airdrop_tokens_amount`: setup amount of tokens which will be distributed at the end of the season. By default, the amount for second season set.
+- `previous_season_points`: setup amount of tokens which was distributed at the end of the previous season. By default, the amount by the start of second season set.
+- `custom_multiplier`: you can set specific multiplier if you think that tvl will grow, additional multiplier will be added or something like this.
+- `default_point_per_hour`: Base rate of point accumulation per ETH without multipliers.
+- `season_date_end`: Sets the predicted end date of the season.
+3. **dynamic_points_price.kelp**:
+- `fdv`: Estimated value of protocol in TGE. It's just a prediction based on your own calculation and experience.
+- `drop_distribution_percent`: Estimated drop percent from FDV. It's only just a prediction based on similar protocols TGE.
+- `custom_multiplier`: you can set specific multiplier if you think that tvl will grow, additional multiplier will be added or something like this.
+- `default_point_per_hour`: Base rate of point accumulation per ETH without multipliers.
+- `season_date_end`: Sets the predicted end date of the season.
+4. **dynamic_points_price.zircuit**:
+- `fdv`: Estimated value of protocol in TGE. It's just a prediction based on your own calculation and experience.
+- `drop_distribution_percent`: Estimated drop percent from FDV. It's only just a prediction based on similar protocols TGE.
+- `custom_multiplier`: you can set specific multiplier if you think that tvl will grow, additional multiplier will be added or something like this.
+- `default_point_per_hour`: Base rate of point accumulation per ETH without multipliers.
+- `season_date_end`: Sets the predicted end date of the season.
+
+## Methodology
+- renzo: described in `dynamic_points_price/renzo.py` file
+- kelp: described in `dynamic_points_price/kelp.py` file
+- zircuit: described in `dynamic_points_price/zircuit.py` file

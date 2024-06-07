@@ -2,10 +2,14 @@ from pprint import pprint
 
 from config.config import config
 from pendle.pendle_handler import PendleHandler
+from dynamic_points_price.dynamic_points_price import setup_calculate_points_prices
 from wallet_scanner.wallet_scanner import WalletScanner
 
 
 def main():
+    if config.dynamic_points_price_enabled:
+        setup_calculate_points_prices()
+
     if config.wallets_scan_enabled:
         print("Starting wallets scanning")
         for wallet in config.wallet_scanner.wallets:

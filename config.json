@@ -97,5 +97,30 @@
       "el_points_per_hour": 1,
       "zircuit_points_per_hour": 1
     }
+  },
+  "dynamic_points_price_enabled": false,
+  "dun_api_token": "",
+  "dynamic_points_price": {
+    "renzo": {
+      "airdrop_tokens_amount": 500000000,
+      "previous_season_points": 1680000000,
+      "custom_multiplier": 1,
+      "default_point_per_hour": 1,
+      "season_date_end": "2024-07-30T00:00:00.000"
+    },
+    "kelp": {
+      "fdv": 1000000000,
+      "drop_distribution_percent": 5,
+      "custom_multiplier": 1,
+      "default_point_per_hour": 416.67,
+      "season_date_end": "2024-06-30T00:00:00.000"
+    },
+    "zircuit": {
+      "fdv": 1000000000,
+      "drop_distribution_percent": 5,
+      "custom_multiplier": 1,
+      "default_point_per_hour": 1,
+      "season_date_end": "2024-06-30T00:00:00.000"
+    }
   }
 }
