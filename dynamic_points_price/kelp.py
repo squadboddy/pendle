@@ -9,7 +9,27 @@ from dynamic_points_price.tools import process_daily_points_data
 
 
 def calculate_kelp_point_price() -> Optional[float]:
-    """Calculation of kelp point price."""
+    """
+    Calculation of kelp point price.
+
+    Variables:
+    **fdv** - estimation of all protocol points price.
+     It's possible just to guess this value based on your own expirience.
+    **drop_distribution_percent** - also possible just to guess this value based on similar protocols distribution.
+    **season_date_end** - Suggested date when the season ends.
+    **custom_multiplier** - current script don't know about tvl changes in future, additional multipliers etc.
+    For example, you know that tomorrow unlock will start and 10 percent of tvl will be withdrawn.
+     You can set this parameter to 0.9 to calculate result better.
+     Required to calculate total amount of points earned by the end of the season.
+    **default_point_per_hour** - constant based on protocol rules
+
+    Methodology.
+    Formula: point_price = fdv * (drop_distribution_percent / 100) / total_points_by_the_end_of_season
+    Where:
+    - total_points_by_the_end_of_season = current_total_point_amount + future_points
+    - future_points = tvl * multiplier * custom_multiplier * hours_before_season_ends * default_point_per_hour
+    - multiplier = daily_points / tvl / 24 / default_point_per_hour
+    """
 
     fdv = config.dynamic_points_price.kelp["fdv"]
     drop_distribution_percent = config.dynamic_points_price.kelp["drop_distribution_percent"]
