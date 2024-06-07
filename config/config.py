@@ -16,7 +16,7 @@ class Config(BaseModel):
     pendle: Pendle
     dynamic_points_price_enabled: bool
     dynamic_points_price: DynamicPointsPrice
-    dun_api_token: str
+    dune_api_token: str
 
 
 def __setup_config() -> Config:
@@ -30,7 +30,7 @@ def __setup_config() -> Config:
 config = __setup_config()
 
 dune = DuneClient(
-    api_key=config.dun_api_token,
+    api_key=config.dune_api_token,
     base_url="https://api.dune.com",
     request_timeout=300  # request will time out after 300 seconds
 )

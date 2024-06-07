@@ -45,7 +45,7 @@ Configuration adjustments should only be made in the `config.json` file. This sc
 ### Dynamic points price calculation
 
 ## Prerequisites:
-- To use this module you need to set your `dun_api_token` to config file.
+- To use this module you need to set your `dune_api_token` to config file.
 - To register this token you need to sign up/ in to `https://dune.com`. 
 - Then open profile setting (`https://dune.com/settings/api`) -> "create new api key"
 

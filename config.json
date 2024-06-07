@@ -99,7 +99,7 @@
     }
   },
   "dynamic_points_price_enabled": false,
-  "dun_api_token": "",
+  "dune_api_token": "",
   "dynamic_points_price": {
     "renzo": {
       "airdrop_tokens_amount": 500000000,
